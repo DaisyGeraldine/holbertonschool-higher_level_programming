@@ -11,6 +11,9 @@ if __name__ == "__main__":
         '*': mul(int(argv[1]), int(argv[3])),
         "/": div(int(argv[1]), int(argv[3]))
         }
-    error = "Unknown operator. Available operators: +, -, * and /"
-    resultado = operator.get(argv[2], error)
-    print('{} {} {} = {}'.format(argv[1], argv[2], argv[3], resultado))
+    resultado = operator.get(argv[2], "error")
+    if resultado == "error":
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+    else:
+        print('{} {} {} = {}'.format(argv[1], argv[2], argv[3], resultado))
