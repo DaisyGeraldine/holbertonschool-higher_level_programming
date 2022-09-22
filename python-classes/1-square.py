@@ -8,7 +8,7 @@
 
 
 class Square:
-    """This class is empty
+    """This class is named Square
 
     Attributes:
        Instantiation with size (no type/value verification)
