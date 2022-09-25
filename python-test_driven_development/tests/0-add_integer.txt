@@ -73,3 +73,6 @@ Now use it:
     Traceback (most recent call last):
     ´´´
     OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(50, False)
+    50
