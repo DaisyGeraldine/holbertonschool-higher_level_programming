@@ -48,3 +48,13 @@ Now use it:
     Traceback (most recent call last):
     ´´´
     TypeError: b must be an integer
+
+    >>> add_integer(float(NaN), 5)
+    Traceback (most recent call last):
+    ´´´
+    NameError: name 'NaN' is not defined
+
+    >>> add_integer(5, {3, 3})
+    Traceback (most recent call last):
+    ´´´
+    TypeError: b must be an integer
