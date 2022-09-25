@@ -30,3 +30,26 @@ Now use it:
 
     >>> add_integer(-45, -2)
     -47
+
+    >>> add_integer(--5, --5)
+    10
+
+    >>> add_integer(4, "")
+    Traceback (most recent call last):
+    ´´´
+    TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+    >>> add_integer("", "")
+    Traceback (most recent call last):
+    ´´´
+    ValueError: invalid literal for int() with base 10: ''
+
+    >>> add_integer(None, "str")
+    Traceback (most recent call last):
+    ´´´
+    TypeError: unsupported operand type(s) for +: 'NoneType' and 'str'
+
+    >>> add_integer(None, None)
+    Traceback (most recent call last):
+    ´´´
+    TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
