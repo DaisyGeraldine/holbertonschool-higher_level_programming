@@ -33,8 +33,6 @@ Now use it:
 
     """ List string """
     >>> my_list = MyList()
-    >>> my_list.append("Hi")
-    >>> my_list.append("School")
-    >>> my_list.append("Bye")
-    >>> my_list.print_sorted()
-    ['Bye', 'Hi', 'School']
+    >>> my_list.append(3)
+    >>> print(str(my_list))
+    [3]
