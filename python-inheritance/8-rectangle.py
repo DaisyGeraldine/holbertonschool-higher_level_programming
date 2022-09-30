@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
 """This module named 8-rectangle.py
    Created on Thursday, September 29, 2022
    @author: Daisy Chipana Lapa
 """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
