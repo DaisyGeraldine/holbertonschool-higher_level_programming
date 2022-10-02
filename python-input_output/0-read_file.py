@@ -12,5 +12,5 @@ def read_file(filename=""):
            Returns:
                Nothing, also print file
     """
-    with open('my_file_0.txt') as _file:
+    with open(filename) as _file:
         print(_file.read())
