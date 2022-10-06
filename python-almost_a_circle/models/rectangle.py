@@ -47,6 +47,24 @@ class Rectangle(Base):
                 print()
         print()
 
+    def update(self, *args):
+        """ Public method named update
+           Args:
+               args: Variable referring to the same instancthat
+                     assigns an argument to each attributee
+               * 1st argument should be the id attribute
+               * 2nd argument should be the width attribute
+               * 3rd argument should be the height attribute
+               * 4th argument should be the x attribute
+               * 5th argument should be the y attribute
+        """
+        for num in range(len(args)):
+            setattr(self, 'id' if num == 0
+                    else 'width' if num == 1
+                    else 'height' if num == 2
+                    else 'x' if num == 3
+                    else 'y', args[num])
+
     def __str__(self):
         string1 = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
         string2 = f" - {self.__width}/{self.__height}"
