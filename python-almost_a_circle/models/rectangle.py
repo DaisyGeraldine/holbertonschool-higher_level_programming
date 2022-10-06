@@ -37,7 +37,11 @@ class Rectangle(Base):
            Returns:
                Prints in stdout the Rectangle instance with the character #
         """
+        for c_y in range(self.__y):
+            print()
+
         for row in range(self.__height):
+            print(" " * self.__x, end="")
             print("#" * self.__width, end="")
             if row < self.__height - 1:
                 print()
