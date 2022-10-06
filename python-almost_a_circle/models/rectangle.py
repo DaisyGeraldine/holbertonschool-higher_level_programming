@@ -20,6 +20,16 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def area(self):
+        """ Public method named area
+           Args:
+               self: Variable referring to the same instance
+           Returns:
+               The area value of the Rectangle instance
+        """
+        area = self.__height * self.__width
+        return area
+
     @property
     def width(self):
         return self.__width
