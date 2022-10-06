@@ -30,6 +30,19 @@ class Rectangle(Base):
         area = self.__height * self.__width
         return area
 
+    def display(self):
+        """ Public method named display
+           Args:
+               self: Variable referring to the same instance
+           Returns:
+               Prints in stdout the Rectangle instance with the character #
+        """
+        for row in range(self.__height):
+            print("#" * self.__width, end="")
+            if row < self.__height - 1:
+                print()
+        print()
+
     @property
     def width(self):
         return self.__width
