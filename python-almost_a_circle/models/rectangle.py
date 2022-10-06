@@ -47,16 +47,17 @@ class Rectangle(Base):
                 print()
         print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Public method named update
            Args:
                args: Variable referring to the same instancthat
                      assigns an argument to each attributee
-               * 1st argument should be the id attribute
-               * 2nd argument should be the width attribute
-               * 3rd argument should be the height attribute
-               * 4th argument should be the x attribute
-               * 5th argument should be the y attribute
+                * 1st argument should be the id attribute
+                * 2nd argument should be the width attribute
+                * 3rd argument should be the height attribute
+                * 4th argument should be the x attribute
+                * 5th argument should be the y attribute
+              kwargs: must be skipped if *args exists and is not empty
         """
         for num in range(len(args)):
             setattr(self, 'id' if num == 0
@@ -64,6 +65,9 @@ class Rectangle(Base):
                     else 'height' if num == 2
                     else 'x' if num == 3
                     else 'y', args[num])
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def __str__(self):
         string1 = f"[Rectangle] ({self.id}) {self.__x}/{self.__y}"
