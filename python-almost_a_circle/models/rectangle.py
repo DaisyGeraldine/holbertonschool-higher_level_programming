@@ -125,3 +125,14 @@ class Rectangle(Base):
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
+
+    def to_dictionary(self):
+        """ Public method named to_dictionary
+           Args:
+               self: Variable referring to the same instance
+           Returns:
+               that returns the dictionary representation of a Rectangle
+        """
+        dic = {"x": self.x, "y": self.y, "id": self.id,
+               "height": self.height, "width": self.width}
+        return dic
