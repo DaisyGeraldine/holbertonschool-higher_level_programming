@@ -47,3 +47,13 @@ class Square(Rectangle):
 
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Public method named to_dictionary
+           Args:
+               self: Variable referring to the same instance
+           Returns:
+               that returns the dictionary representation of a Square
+        """
+        dic = {"id": self.id, "x": self.x, "size": self.size, "y": self.y}
+        return dic
