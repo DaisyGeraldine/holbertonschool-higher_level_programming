@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """This module named 1-Square.py
-   Created on Wednesday, October 05, 2022
+   Created on Saturday, October 08, 2022
    @author: Daisy Chipana Lapa
 """
 
@@ -59,3 +59,16 @@ class Base:
 
         with open(filename, 'w', encoding='utf-8') as my_file1:
             my_file1.write(format_json)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ Class method named from_json_string
+           Args:
+               json_string: is a string representing a list of dictionaries
+           Returns:
+               The list of the JSON string representation json_string
+        """
+        if json_string is None or json_string == []:
+            return []
+        else:
+            return json.loads(json_string)
