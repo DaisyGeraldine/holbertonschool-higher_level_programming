@@ -7,7 +7,8 @@
 
 
 import json
-
+import sys
+import os
 
 class Base:
     """This class is named Base
@@ -97,8 +98,12 @@ class Base:
            Returns:
                A list of instances
         """
+
         filename = '{}.json'.format(cls.__name__)
         list_instances = []
+
+        if not os.path.exists(filename):
+            return []
 
         with open(filename, encoding='utf-8') as my_file:
             list_dict = cls.from_json_string(my_file.read())
