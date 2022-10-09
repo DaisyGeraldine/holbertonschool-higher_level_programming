@@ -6,6 +6,11 @@ from models.rectangle import Rectangle
 
 
 class Test_Rectangle(unittest.TestCase):
+    def test_Rectangle_arguments_exist(self):
+        """This methods will be tested with all_arguments"""
+        r1 = Rectangle(10, 2, 1, 1, 12)
+        #self.assertEqual(r1, (10, 2, 0, 0, 12))
+
     def test_Rectangle_all_arguments(self):
         """This methods will be tested with all_arguments"""
         r1 = Rectangle(10, 2, 0, 0, 12)
