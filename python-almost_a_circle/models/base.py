@@ -62,7 +62,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Class method named from_json_string
+        """ Static method named from_json_string
            Args:
                json_string: is a string representing a list of dictionaries
            Returns:
@@ -72,3 +72,20 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ Class method named create
+           Args:
+               cls: Is a instancie of class
+               dictionary: must be used as **kwargs of the method update
+           Returns:
+               An instance with all attributes already set
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        if cls.__name__ == "Square":
+            dummy = cls(1)
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
