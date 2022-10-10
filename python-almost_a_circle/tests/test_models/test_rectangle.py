@@ -2,6 +2,8 @@
 """Unittest for class Base()
 """
 import unittest
+import io
+import sys
 from models.rectangle import Rectangle
 
 
@@ -80,3 +82,31 @@ class Test_Rectangle__str__exist(unittest.TestCase):
         """This methods will be tested in case of function __str__"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEquals(str(r1), '[Rectangle] (12) 2/1 - 4/6')
+
+class Test_Rectangle_display(unittest.TestCase):
+    def test_Rectangle_display_exist(self):
+        """This methods will be tested in case if display exist"""
+        output = io.StringIO()
+        sys.stdout = output
+        r1 = Rectangle(2, 3, 2, 2)
+        r1.display()
+        prints = "\n\n  ##\n  ##\n  ##\n"
+        self.assertEquals(output.getvalue(), prints)
+
+    def test_Rectangle_display_exist_also_x(self):
+        """This methods will be tested in case if display exist also x"""
+        output = io.StringIO()
+        sys.stdout = output
+        r2 = Rectangle(3, 2, 1)
+        r2.display()
+        prints = " ###\n ###\n"
+        self.assertEquals(output.getvalue(), prints)
+
+    def test_Rectangle_display_if_not_exist_x_and_y(self):
+        """This methods will be tested in case not exist value to x and y"""
+        output = io.StringIO()
+        sys.stdout = output
+        r3 = Rectangle(3, 2)
+        r3.display()
+        prints = "###\n###\n"
+        self.assertEquals(output.getvalue(), prints)
