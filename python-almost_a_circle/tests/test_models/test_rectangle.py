@@ -186,8 +186,8 @@ class Test_Rectangle_create(unittest.TestCase):
 
 
 class Test_Rectangle_save_to_file(unittest.TestCase):
-    """def test_Rectangle_save_to_file(self):"""
     def test_save_to_file(self):
+        """This methods will be tested save_to_file"""
         test1 = Rectangle(1, 1, 1, 1)
         test2 = Rectangle(2, 2, 2, 2)
         lista = [test1, test2]
@@ -199,7 +199,6 @@ class Test_Rectangle_save_to_file(unittest.TestCase):
     def test_save_to_file_empty(self):
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as file:
-            ls = []
             self.assertEqual('[]', file.read())
 
     def test_save_to_file_None(self):
@@ -210,4 +209,16 @@ class Test_Rectangle_save_to_file(unittest.TestCase):
 
 
 class Test_Rectangle_(unittest.TestCase):
-    """def test_Rectangle_save_to_file(self):"""
+    def test_load_from_none_file(self):
+        """This methods will be tested None file"""
+        Rectangle.save_to_file(None)
+        recs = Rectangle.load_from_file()
+        self.assertEqual(type(recs), list)
+        self.assertEqual(len(recs), 0)
+
+    def test_load_from_empty_file(self):
+        """This methods will be tested empty file"""
+        Rectangle.save_to_file([])
+        recs = Rectangle.load_from_file()
+        self.assertEqual(type(recs), list)
+        self.assertEqual(len(recs), 0)
