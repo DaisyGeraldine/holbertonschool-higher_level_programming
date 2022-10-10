@@ -157,3 +157,28 @@ class Test_Rectangle_update(unittest.TestCase):
         self.assertEqual(str(r1), '[Rectangle] (89) 3/1 - 2/1')
         r1.update(x=1, height=2, y=3, width=4)
         self.assertEqual(str(r1), '[Rectangle] (89) 1/3 - 4/2')
+
+
+class Test_Rectangle_create(unittest.TestCase):
+    def test_Rectangle_create(self):
+        """This methods will be tested with Create"""
+        r1 = Rectangle.create(**{'id': 85})
+        self.assertEqual(str(r1), '[Rectangle] (85) 0/0 - 1/1')
+
+        r2 = Rectangle.create(**{'id': 85, 'width': 1})
+        self.assertEqual(str(r2), '[Rectangle] (85) 0/0 - 1/1')
+
+        r3 = Rectangle.create(**{'id': 85, 'width': 1, 'height': 2})
+        self.assertEqual(str(r3), '[Rectangle] (85) 0/0 - 1/2')
+
+        r4 = Rectangle.create(**{'id': 85, 'width': 1, 'height': 2, 'x': 3})
+        self.assertEqual(str(r4), '[Rectangle] (85) 3/0 - 1/2')
+
+        r5 = Rectangle.create(**{'id': 85, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(str(r5), '[Rectangle] (85) 3/4 - 1/2')
+
+        r6 = Rectangle(3, 5, 1)
+        r6.id = 1
+        r6_dictionary = r6.to_dictionary()
+        r7 = Rectangle.create(**r6_dictionary)
+        self.assertEqual(str(r7), '[Rectangle] (1) 1/0 - 3/5')
