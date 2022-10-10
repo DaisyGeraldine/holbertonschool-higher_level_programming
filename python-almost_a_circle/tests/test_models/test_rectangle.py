@@ -29,6 +29,7 @@ class Test_Rectangle(unittest.TestCase):
         r2.id = 2
         self.assertEqual(r2.id, 2)
 
+
 class Test_Rectangle_validate_atributes(unittest.TestCase):
     def test_Rectangle_str(self):
         """This methods will be tested with str value"""
@@ -69,6 +70,7 @@ class Test_Rectangle_validate_atributes(unittest.TestCase):
         with self.assertRaises(TypeError):
             r2 = Rectangle(5, 10, 3, "3")
 
+
 class Test_Rectangle_Area_first(unittest.TestCase):
     def test_Rectangle_area_number_positive(self):
         """This methods will be tested with numbers positive"""
@@ -77,11 +79,13 @@ class Test_Rectangle_Area_first(unittest.TestCase):
         r2 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r2.area(), 56)
 
+
 class Test_Rectangle__str__exist(unittest.TestCase):
     def test_Rectangle_str__exist(self):
         """This methods will be tested in case of function __str__"""
         r1 = Rectangle(4, 6, 2, 1, 12)
         self.assertEquals(str(r1), '[Rectangle] (12) 2/1 - 4/6')
+
 
 class Test_Rectangle_display(unittest.TestCase):
     def test_Rectangle_display_exist(self):
@@ -110,3 +114,46 @@ class Test_Rectangle_display(unittest.TestCase):
         r3.display()
         prints = "###\n###\n"
         self.assertEquals(output.getvalue(), prints)
+
+
+class Test_Rectangle_to_dictionary(unittest.TestCase):
+    def test_Rectangle_to_dictionary(self):
+        """This methods will be tested if Rectangle exist"""
+        r10 = Rectangle(10, 2, 1, 9, 12)
+        r1_dictionary = r10.to_dictionary()
+        self.assertEqual(r1_dictionary['width'], 10)
+        self.assertEqual(r1_dictionary['height'], 2)
+        self.assertEqual(r1_dictionary['x'], 1)
+        self.assertEqual(r1_dictionary['y'], 9)
+        self.assertEqual(r1_dictionary['id'], 12)
+
+
+class Test_Rectangle_update(unittest.TestCase):
+    def test_Rectangle_update_args(self):
+        """This methods will be tested with Update args"""
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.id = 1
+        self.assertEqual(str(r1), '[Rectangle] (1) 10/10 - 10/10')
+        r1.update(89)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 10/10')
+        r1.update(89, 2)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 2/10')
+        r1.update(89, 2, 3)
+        self.assertEqual(str(r1), '[Rectangle] (89) 10/10 - 2/3')
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(str(r1), '[Rectangle] (89) 4/10 - 2/3')
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(str(r1), '[Rectangle] (89) 4/5 - 2/3')
+
+    def test_Rectangle_update_kwargs(self):
+        """This methods will be tested with Update kwargs"""
+        r1 = Rectangle(10, 10, 10, 10)
+        r1.id = 1
+        r1.update(height=1)
+        self.assertEqual(str(r1), '[Rectangle] (1) 10/10 - 10/1')
+        r1.update(width=1, x=2)
+        self.assertEqual(str(r1), '[Rectangle] (1) 2/10 - 1/1')
+        r1.update(y=1, width=2, x=3, id=89)
+        self.assertEqual(str(r1), '[Rectangle] (89) 3/1 - 2/1')
+        r1.update(x=1, height=2, y=3, width=4)
+        self.assertEqual(str(r1), '[Rectangle] (89) 1/3 - 4/2')
