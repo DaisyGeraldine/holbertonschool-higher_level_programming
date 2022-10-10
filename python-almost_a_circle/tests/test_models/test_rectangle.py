@@ -4,6 +4,7 @@
 import unittest
 import io
 import sys
+import json
 from models.rectangle import Rectangle
 
 
@@ -182,3 +183,27 @@ class Test_Rectangle_create(unittest.TestCase):
         r6_dictionary = r6.to_dictionary()
         r7 = Rectangle.create(**r6_dictionary)
         self.assertEqual(str(r7), '[Rectangle] (1) 1/0 - 3/5')
+
+
+class Test_Rectangle_save_to_file(unittest.TestCase):
+    """def test_Rectangle_save_to_file(self):"""
+    def test_save_to_file(self):
+        test1 = Rectangle(1, 1, 1, 1)
+        test2 = Rectangle(2, 2, 2, 2)
+        lista = [test1, test2]
+        Rectangle.save_to_file(lista)
+        with open("Rectangle.json", "r") as file:
+            ls = [test1.to_dictionary(), test2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), file.read())
+
+    def test_save_to_file_empty(self):
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            ls = []
+            self.assertEqual(json.dumps(ls), file.read())
+
+    def test_save_to_file_None(self):
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            ls = []
+            self.assertEqual(json.dumps(ls), file.read())
