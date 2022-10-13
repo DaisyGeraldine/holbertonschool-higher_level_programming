@@ -52,12 +52,12 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         list_dictionary = []
 
-        if list_objs:
+        if list_objs is None or len(list_objs) == 0:
+            format_json = str(list_dictionary)
+        else:
             for list_dict in list_objs:
                 list_dictionary.append(list_dict.to_dictionary())
                 format_json = cls.to_json_string(list_dictionary)
-        else:
-            format_json = cls.to_json_string(list_dictionary)
 
         with open(filename, 'w', encoding='utf-8') as my_file1:
             my_file1.write(format_json)
