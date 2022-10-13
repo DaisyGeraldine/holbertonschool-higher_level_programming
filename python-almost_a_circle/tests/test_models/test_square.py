@@ -19,10 +19,11 @@ class Test_Rectangle(unittest.TestCase):
     def test_Square_arguments(self):
         """This methods will be tested one two_arguments"""
         s1 = Square(10, 2)
+        s1.id = 1
         s2 = Square(4, 1)
         s3 = Square(8, 1, 2)
         s4 = Square(8, 1, 2, 4)
-        self.assertEqual(s1.size, 10)
+        self.assertEqual(s1.id, 1)
         self.assertEqual(s2.size, 4)
         self.assertEqual(s3.size, 8)
         self.assertEqual(s4.id, 4)
@@ -51,9 +52,11 @@ class Test_Square_validate_atributes(unittest.TestCase):
     def test_Square_if_x_str(self):
         """This methods will be tested with the atribute x as str"""
         with self.assertRaises(TypeError):
-            s1 = Square(10, 5, "2")
+            s1 = Square(1, "2")
         with self.assertRaises(TypeError):
-            s2 = Square(5, 10, "3")
+            s2 = Square(10, 5, "2")
+        with self.assertRaises(TypeError):
+            s3 = Square(5, 10, "3")
 
 
 class Test_Square__str__exist(unittest.TestCase):
@@ -112,3 +115,67 @@ class Test_Square_update(unittest.TestCase):
         self.assertEqual(str(s1), '[Square] (89) 3/1 - 2')
         s1.update(x=1, size=2, y=3, width=4)
         self.assertEqual(str(s1), '[Square] (89) 1/3 - 2')
+
+
+class Test_Square_create(unittest.TestCase):
+    def test_Square_create(self):
+        """This methods will be tested with Create"""
+        s1 = Square.create(**{'id': 85})
+        self.assertEqual(str(s1), '[Square] (85) 0/0 - 1')
+
+        s2 = Square.create(**{'id': 85, 'size': 1})
+        self.assertEqual(str(s2), '[Square] (85) 0/0 - 1')
+
+        s3 = Square.create(**{'id': 85, 'size': 2})
+        self.assertEqual(str(s3), '[Square] (85) 0/0 - 2')
+
+        s4 = Square.create(**{'id': 85, 'size': 2, 'x': 3})
+        self.assertEqual(str(s4), '[Square] (85) 3/0 - 2')
+
+        s5 = Square.create(**{'id': 85, 'size': 2, 'x': 3, 'y': 4})
+        self.assertEqual(str(s5), '[Square] (85) 3/4 - 2')
+
+        s6 = Square(3, 2, 1)
+        s6.id = 1
+        s6_dictionary = s6.to_dictionary()
+        s7 = Square.create(**s6_dictionary)
+        self.assertEqual(str(s7), '[Square] (1) 2/1 - 3')
+
+
+class Test_Square_save_to_file(unittest.TestCase):
+    def test_save_to_file(self):
+        """This methods will be tested save_to_file"""
+        test1 = Square(1, 1, 1, 1)
+        test2 = Square(2, 2, 2, 2)
+        lista = [test1, test2]
+        Square.save_to_file(lista)
+        with open("Square.json", "r") as file:
+            ls = [test1.to_dictionary(), test2.to_dictionary()]
+            self.assertEqual(json.dumps(ls), file.read())
+
+    def test_save_to_file_empty(self):
+        Square.save_to_file([])
+        with open("Square.json", "r") as file:
+            self.assertEqual('[]', file.read())
+
+    def test_save_to_file_None(self):
+        Square.save_to_file(None)
+        with open("Square.json", "r") as file:
+            ls = []
+            self.assertEqual(json.dumps(ls), file.read())
+
+
+class Test_Square_(unittest.TestCase):
+    def test_load_from_none_file(self):
+        """This methods will be tested None file"""
+        Square.save_to_file(None)
+        recs = Square.load_from_file()
+        self.assertEqual(type(recs), list)
+        self.assertEqual(len(recs), 0)
+
+    def test_load_from_empty_file(self):
+        """This methods will be tested empty file"""
+        Square.save_to_file([])
+        recs = Square.load_from_file()
+        self.assertEqual(type(recs), list)
+        self.assertEqual(len(recs), 0)
