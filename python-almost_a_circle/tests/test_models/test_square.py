@@ -63,7 +63,7 @@ class Test_Square__str__exist(unittest.TestCase):
     def test_Square_str__exist(self):
         """This methods will be tested in case of function __str__"""
         s1 = Square(4, 6, 2, 1)
-        self.assertEquals(str(s1), '[Square] (1) 6/2 - 4')
+        self.assertEqual(str(s1), '[Square] (1) 6/2 - 4')
 
 
 class Test_Square_display(unittest.TestCase):
@@ -74,7 +74,7 @@ class Test_Square_display(unittest.TestCase):
         s1 = Square(4, 2, 2)
         s1.display()
         prints = "\n\n  ####\n  ####\n  ####\n  ####\n"
-        self.assertEquals(output.getvalue(), prints)
+        self.assertEqual(output.getvalue(), prints)
 
 
 class Test_Square_to_dictionary(unittest.TestCase):

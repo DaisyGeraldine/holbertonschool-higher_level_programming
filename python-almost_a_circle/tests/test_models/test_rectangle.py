@@ -85,7 +85,7 @@ class Test_Rectangle__str__exist(unittest.TestCase):
     def test_Rectangle_str__exist(self):
         """This methods will be tested in case of function __str__"""
         r1 = Rectangle(4, 6, 2, 1, 12)
-        self.assertEquals(str(r1), '[Rectangle] (12) 2/1 - 4/6')
+        self.assertEqual(str(r1), '[Rectangle] (12) 2/1 - 4/6')
 
 
 class Test_Rectangle_display(unittest.TestCase):
@@ -96,7 +96,7 @@ class Test_Rectangle_display(unittest.TestCase):
         r1 = Rectangle(2, 3, 2, 2)
         r1.display()
         prints = "\n\n  ##\n  ##\n  ##\n"
-        self.assertEquals(output.getvalue(), prints)
+        self.assertEqual(output.getvalue(), prints)
 
     def test_Rectangle_display_exist_also_x(self):
         """This methods will be tested in case if display exist also x"""
@@ -105,7 +105,7 @@ class Test_Rectangle_display(unittest.TestCase):
         r2 = Rectangle(3, 2, 1)
         r2.display()
         prints = " ###\n ###\n"
-        self.assertEquals(output.getvalue(), prints)
+        self.assertEqual(output.getvalue(), prints)
 
     def test_Rectangle_display_if_not_exist_x_and_y(self):
         """This methods will be tested in case not exist value to x and y"""
@@ -114,7 +114,7 @@ class Test_Rectangle_display(unittest.TestCase):
         r3 = Rectangle(3, 2)
         r3.display()
         prints = "###\n###\n"
-        self.assertEquals(output.getvalue(), prints)
+        self.assertEqual(output.getvalue(), prints)
 
 
 class Test_Rectangle_to_dictionary(unittest.TestCase):
