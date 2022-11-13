@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module takes in an argument and displays all values in the states table
-   of hbtn_0e_0_usa where name.Code write one that is safe from MySQL injections
+   of hbtn_0e_0_usa where name.
+   Code write one that is safe from MySQL injections.
    Created on Saturday, November 12, 2022
    @author: DaisyG Chipana Lapa
 """
