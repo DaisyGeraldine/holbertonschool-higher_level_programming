@@ -21,7 +21,10 @@ if __name__ == "__main__":
 
     # create a Session
     session = Session()
-    
+
     state = session.query(State).first()
-    print("{}: {}".format(state.id, state.name))
+    if state == None:
+        print()
+    else:
+        print("{}: {}".format(state.id, state.name))
     session.close()
