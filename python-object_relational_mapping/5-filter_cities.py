@@ -8,6 +8,8 @@
 if __name__ == '__main__':
     import MySQLdb
     from sys import argv
+
+    cont = 0
     conn = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                            passwd=argv[2], db=argv[3], charset="utf8mb4")
     cur = conn.cursor()
@@ -17,6 +19,10 @@ if __name__ == '__main__':
                 {'states.name': argv[4]})
     query_rows = cur.fetchall()
     for row in query_rows:
-        print(row)
+        if cont > 0:
+            print(", ", end="")
+        print(row[0], end="")
+        cont = cont + 1
+    print()
     cur.close()
     conn.close()
