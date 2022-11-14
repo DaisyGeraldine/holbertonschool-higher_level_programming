@@ -14,7 +14,7 @@ if __name__ == "__main__":
     # create an engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2],
-                                   sys.argv[3]), echo=False)
+                                   sys.argv[3]), echo=True)
     Base.metadata.create_all(engine)
 
     # create a configured "Session" class
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     session = Session()
 
     # delete records
-    for deleted_rec in session.query(State).filter(State.name.like('%a%')):
+    for deleted_rec in session.query(State).filter(State.name.like('%a%')).all():
         session.delete(deleted_rec)
         session.commit()
 
