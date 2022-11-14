@@ -24,7 +24,8 @@ if __name__ == "__main__":
     session = Session()
 
     # delete records
-    for deleted_rec in session.query(State).filter(State.name.like('%a%')).all():
+    query = session.query(State).filter(State.name.like('%a%'))
+    for deleted_rec in query.all():
         session.delete(deleted_rec)
         session.commit()
 
