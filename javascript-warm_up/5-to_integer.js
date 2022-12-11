@@ -5,7 +5,6 @@ const process = require('process');
 let validation = 0;
 // validate if arg[2] is number
 validation = parseInt(process.argv[2]);
-console.log(validation);
 if (validation > 0 || validation <= 0) {
   console.log(`My number: ${validation}`);
 } else {
