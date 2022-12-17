@@ -11,7 +11,9 @@ request(url, function (error, response, body) {
   } else {
     resultList = JSON.parse(body);
     for (const item of resultList) {
-      taskCompletedxUser[`${item.userId}`] = 0;
+      if (item.completed === true) {
+        taskCompletedxUser[`${item.userId}`] = 0;
+      }
     }
     for (const item of resultList) {
       if (item.completed === true) {
