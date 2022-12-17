@@ -10,16 +10,12 @@ request(url, function (error, response, body) {
     console.log(error);
   } else {
     resultList = JSON.parse(body);
-    let id = 1;
-    let count = 0;
     for (const item of resultList) {
-      if (item.userId !== id) {
-        count = 0;
-        id++;
-      }
+      taskCompletedxUser[`${item.userId}`] = 0;
+    }
+    for (const item of resultList) {
       if (item.completed === true) {
-        count++;
-        taskCompletedxUser[`${id}`] = count;
+        taskCompletedxUser[`${item.userId}`] = taskCompletedxUser[`${item.userId}`] + 1;
       }
     }
     console.log(taskCompletedxUser);
