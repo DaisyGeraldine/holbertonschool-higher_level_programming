@@ -13,14 +13,13 @@ request(url, function (error, response, body) {
     let id = 1;
     let count = 0;
     for (const item of resultList) {
-      if (item.userId === id) {
-        if (item.completed === true) {
-          count++;
-          taskCompletedxUser[`${id}`] = count;
-        }
-      } else {
-        id++;
+      if (item.userId !== id) {
         count = 0;
+        id++;
+      }
+      if (item.completed === true) {
+        count++;
+        taskCompletedxUser[`${id}`] = count;
       }
     }
     console.log(taskCompletedxUser);
