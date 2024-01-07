@@ -1,4 +1,5 @@
-# Concepts
+#Python - Hello, World
+### Concepts
 For this project, we expect you to look at this concept:
 
 - **Python programming**
@@ -49,3 +50,4 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 ## More Info
 **Pycodestyle:**
+Pycodestyle is now the [new standard of Python style code](https://github.com/PyCQA/pycodestyle/issues/466)
