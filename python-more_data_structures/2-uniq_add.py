@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
+    if not my_list:
+        return 0
     sum = 0
     max_item = len(my_list)
     new_list = sorted(my_list)
