@@ -4,9 +4,10 @@
 
 
 class Square:
-    """ class Square that defines a square 
+    """ class Square that defines a square
         Private instance attribute: size """
     __size = 0
+
     def __init__(self, size):
         """Initializes the data."""
         self.__size = size
