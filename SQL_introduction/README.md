@@ -66,7 +66,8 @@ $ sudo apt install mysql-server
 ...
 $ mysql --version
 mysql  Ver 8.0.25-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
-$```
+$
+```
 
 Connect to your MySQL server:
 ```bash
@@ -86,7 +87,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql>
 mysql> quit
 Bye
-$```
+$
+```
 
 ### Use the sandbox to run MySQL. 
 In the container, credentials are `root/root`.
@@ -106,7 +108,8 @@ information_schema
 mysql                                                                                      
 performance_schema                                                                         
 sys                      
-$```
+$
+```
 
 In the container, credentials are `root/root`
 
