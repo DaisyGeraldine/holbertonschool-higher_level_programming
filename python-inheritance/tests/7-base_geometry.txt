@@ -28,6 +28,13 @@ Now use it:
     ´´´
     TypeError: name must be an integer
 
+    """ Try to for a boolean """
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", False)
+    Traceback (most recent call last):
+    ´´´
+    TypeError: name must be an integer
+
     """ Try to for equals to 0 """
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 0)
@@ -56,6 +63,13 @@ Now use it:
     ´´´
     TypeError: name must be an integer
 
+    """ Try to for with None """
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", None)
+    Traceback (most recent call last):
+    ´´´
+    TypeError: name must be an integer
+
      """ Try to for a only parameter"""
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name")
@@ -76,10 +90,3 @@ Now use it:
     Traceback (most recent call last):
     ´´´
     TypeError: name must be an integer
-
-    """ Try to for print area"""
-    >>> bg = BaseGeometry()
-    >>> bg.area()
-    Traceback (most recent call last):
-    ´´´
-    Exception: area() is not implemented
