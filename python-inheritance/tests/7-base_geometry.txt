@@ -72,7 +72,7 @@ Now use it:
 
      """ Try to for a only parameter"""
     >>> bg = BaseGeometry()
-    >>> bg.integer_validator("name")
+    >>> bg.integer_validator("age")
     Traceback (most recent call last):
     ´´´
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
