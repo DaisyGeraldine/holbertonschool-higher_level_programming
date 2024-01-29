@@ -2,7 +2,6 @@
 """Task 8 : Class to JSON """
 
 
-
 def class_to_json(obj):
     """function named load_from_json_file
            Args:
